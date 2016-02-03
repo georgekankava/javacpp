@@ -2688,7 +2688,9 @@ public class Parser {
             try {
                 ((InfoMapper)c.newInstance()).map(infoMap);
             } catch (ClassCastException e) {
+
             } catch (InstantiationException e) {
+
             } catch (IllegalAccessException e) {
                 // fail silently as if the interface wasn't implemented
             }
@@ -2697,7 +2699,9 @@ public class Parser {
         try {
             ((InfoMapper)cls.newInstance()).map(leafInfoMap);
         } catch (ClassCastException e) {
+            logger.error("Could not accomplish cast : " + e.getMessage());
         } catch (InstantiationException e) {
+            logger.error("Exception while creating instance : " + e.getMessage());
         } catch (IllegalAccessException e) {
             // fail silently as if the interface wasn't implemented
         }
